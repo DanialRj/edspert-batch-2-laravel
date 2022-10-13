@@ -41,6 +41,8 @@ class ProductController extends Controller
             'price' => $request->input('price')
         ]);
 
-        return redirect()->route('products');
+        return redirect()
+                ->back()
+                ->with('success', 'Data produk berhasil disimpan');  ;
     }
 }

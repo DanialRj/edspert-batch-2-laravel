@@ -8,6 +8,10 @@
                 <div class="card-header">{{ __('Create Product') }}</div>
 
                 <div class="card-body">
+                    @if (Session::has('success'))
+                        <div class="alert alert-info">{{ Session::get('success') }}</div>
+                    @endif
+
                     <form action="{{ route('products-create') }}" method="POST">
                         @csrf
 
@@ -22,9 +26,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-
-                            
+                            </div>                            
                         </div>
 
                         <div class="row mb-3">
