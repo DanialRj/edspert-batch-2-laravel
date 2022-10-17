@@ -25,3 +25,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::post('/products', [ProductController::class, 'create'])->name('products-create');
+Route::delete('/products/delete', [ProductController::class, 'delete'])->name('products-delete');
+Route::get('products/{id}/edit', [ProductController::class, 'show'])->name('products-edit');
+Route::put('products/{id}/update', [ProductController::class, 'update'])->name('products-update');
