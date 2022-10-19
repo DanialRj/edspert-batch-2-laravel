@@ -8,21 +8,11 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         $products = Product::get();
 
-        return view('products', ['products' => $products]);
+        return view('pages.product.products', ['products' => $products]);
     }
 
     public function create(Request $request)
@@ -64,7 +54,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('products-edit', ['product' => $product]);
+        return view('pages.product.products-edit', ['product' => $product]);
     }
 
     public function update($id, Request $request)

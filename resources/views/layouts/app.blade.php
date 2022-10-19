@@ -26,6 +26,7 @@
                 <div>
                     <ul>
                         <li><a href="{{ route('products'); }}">Product</a></li>
+                        <li><a href="{{ route('orders'); }}">Order</a></li>
                     </ul>
                 </div>
 
