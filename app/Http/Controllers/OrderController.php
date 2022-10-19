@@ -28,7 +28,6 @@ class OrderController extends Controller
         $order = $request->user()
                 ->orders()
                 ->create([
-                    'total' => 0,
                     'status' => Order::UNPAID
                 ])
                 ->products()

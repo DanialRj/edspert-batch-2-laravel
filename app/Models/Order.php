@@ -20,16 +20,16 @@ class Order extends Model
      */
     protected $fillable = [
         'user_id',
-        'total',
         'status',
     ];
 
     protected function total(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->products->sum(function($product) {
-                                                return $product->price * $product->pivot->amount;
-                                            }),
+            get: fn () => $this->products
+                                ->sum(function($product) {
+                                    return $product->price * $product->pivot->amount;
+                                }),
         );
     }
 
