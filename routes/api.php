@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginApiController;
+use App\Http\Controllers\UserApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ use App\Http\Controllers\LoginApiController;
 
 Route::post('/login', [LoginApiController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['auth:sanctum']], function() {
+    Route::get('/user/me', [UserApiController::class, 'me']);
+
+    Route::get('/user/details', [UserApiController::class, 'details']);
+    Route::post('/user/create-details', [UserApiController::class, 'createDetails']);
 });
